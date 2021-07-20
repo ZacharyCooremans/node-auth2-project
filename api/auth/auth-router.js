@@ -51,7 +51,7 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
   if (bcrypt.compareSync(req.body.password, req.user.password)) {
     const token = buildToken(req.user)
     res.json({
-      message: `${req.body.username} is back!`,
+      message: `${req.user.username} is back!`,
       token: token
     })
   } else {
